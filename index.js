@@ -18,7 +18,7 @@ app.get('/emails', async (req, res) => {
     console.log(process.env);
     try {
         
-        const directories = ['cur'];
+        const directories = ['new'];
         const emails = [];
 
         for (let dir of directories) {
