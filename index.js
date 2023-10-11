@@ -14,6 +14,8 @@ const MAILDIR_PATH = process.env.PATH
 app.use(bodyParser.json());
 
 app.get('/emails', async (req, res) => {
+
+    console.log(process.env);
     try {
         
         const directories = ['cur'];
