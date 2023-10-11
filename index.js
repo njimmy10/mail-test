@@ -26,7 +26,16 @@ app.get('/emails', async (req, res) => {
 
             for (let file of emailFiles) {
                 const emailContent = await fs.readFile(path.join(MAILDIR_PATH, dir, file), 'utf8');
-                emails.push(emailContent);
+                emailContent = emailContent.split('\n');
+                const email = {
+                    id: file,
+                    from: emailContent[0].split(':')[1].trim(),
+                    to: emailContent[1].split(':')[1].trim(),
+                    subject: emailContent[2].split(':')[1].trim(),
+                    date: emailContent[3].split(':')[1].trim(),
+                    content: emailContent.slice(4).join('\n')
+                };
+                emails.push(email);
             }
         }
 
