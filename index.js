@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 const PORT = 35000;
 
-const MAILDIR_PATH = "/path/to/your/Maildir/";  // Replace with your Maildir path
+const MAILDIR_PATH = "../../mail/asynk.tech/jnoujaim";  // Replace with your Maildir path
 
 app.use(bodyParser.json());
 
