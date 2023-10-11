@@ -25,7 +25,7 @@ app.get('/emails', async (req, res) => {
             const emailFiles = await fs.readdir(path.join(MAILDIR_PATH, dir));
 
             for (let file of emailFiles) {
-                const emailContent = await fs.readFile(path.join(MAILDIR_PATH, dir, file), 'utf8');
+                var emailContent = await fs.readFile(path.join(MAILDIR_PATH, dir, file), 'utf8');
                 emailContent = emailContent.split('\n');
                 const email = {
                     id: file,
