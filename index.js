@@ -6,7 +6,10 @@ const path = require('path');
 const app = express();
 const PORT = 35000;
 
-const MAILDIR_PATH = "asynk/mail/asynk.tech/jnoujaim"; 
+// configure .env file
+require('dotenv').config();
+
+const MAILDIR_PATH = process.env.PATH
 
 app.use(bodyParser.json());
 
