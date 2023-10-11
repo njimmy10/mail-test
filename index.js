@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.get('/emails', async (req, res) => {
     try {
         
-        const directories = ['new', 'cur'];
+        const directories = ['cur'];
         const emails = [];
 
         for (let dir of directories) {
