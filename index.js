@@ -6,12 +6,13 @@ const path = require('path');
 const app = express();
 const PORT = 35000;
 
-const MAILDIR_PATH = "../../mail/asynk.tech/jnoujaim";  // Replace with your Maildir path
+const MAILDIR_PATH = "home/asynk/mail/asynk.tech/jnoujaim";  // Replace with your Maildir path
 
 app.use(bodyParser.json());
 
 app.get('/emails', async (req, res) => {
     try {
+        console.log(MAILDIR_PATH)
         // Read the new emails directory (for unread emails)
         const emailFiles = await fs.readdir(path.join(MAILDIR_PATH, 'new'));
 
