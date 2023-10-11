@@ -12,15 +12,17 @@ app.use(bodyParser.json());
 
 app.get('/emails', async (req, res) => {
     try {
-        console.log(MAILDIR_PATH)
-        // Read the new emails directory (for unread emails)
-        const emailFiles = await fs.readdir(path.join(MAILDIR_PATH, 'new'));
-
+        
+        const directories = ['new', 'cur'];
         const emails = [];
 
-        for (let file of emailFiles) {
-            const emailContent = await fs.readFile(path.join(MAILDIR_PATH, 'new', file), 'utf8');
-            emails.push(emailContent);
+        for (let dir of directories) {
+            const emailFiles = await fs.readdir(path.join(MAILDIR_PATH, dir));
+
+            for (let file of emailFiles) {
+                const emailContent = await fs.readFile(path.join(MAILDIR_PATH, dir, file), 'utf8');
+                emails.push(emailContent);
+            }
         }
 
         res.json({ success: true, emails: emails });
