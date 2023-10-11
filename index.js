@@ -9,7 +9,7 @@ const PORT = 35000;
 // configure .env file
 require('dotenv').config();
 
-const MAILDIR_PATH = process.env.PATH
+const MAILDIR_PATH = process.env.EMAIL_PATH
 
 app.use(bodyParser.json());
 
